@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 function SignUp() {
 const [username,setUser]=useState("")
 const [password,setPassword]=useState("")
-cons navigate =useNavigate()
+const navigate =useNavigate()
 
 
 const inputName = (e)=>{
@@ -19,9 +19,9 @@ const inputPassword =(e)=>{
 }
 
 const addUser =(e)=>{
-    e.preventDefault();
     if(username.trim()!=="" && password.trim() !==""){
-        
+        e.preventDefault();
+
     axios.post('https://66e7e69bb17821a9d9da6eb2.mockapi.io/login',{
         username,
         password,
@@ -35,7 +35,7 @@ const addUser =(e)=>{
             text: "Thank you for signing up!",
             icon: "success",
           });
-        //   navigator('/homeuser')
+          navigate('/Login')
 
       })
       .catch( (error)=> {

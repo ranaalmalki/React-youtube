@@ -1,33 +1,60 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
 function Login() {
     const [username,setUser]=useState("")
     const [password,setPassword]=useState("")
+const {userId}=useParams()
+const navigate = useNavigate()
 
-
-useEffect(()=>{
+// useEffect(()=>{
     
-})
+// })
+
+
 
     const inputUserName=(e)=>{
+        e.preventDefault();
         setUser(e.target.value)
 
     }
 
     const inputPassowrd =(e)=>{
+        e.preventDefault();
         setPassword(e.target.value)
     }
 
-    const submitSend=()=>{
+    const submitSend=(e)=>{
+        if(username.trim()!=="" && password.trim()!==""){
+            
+        e.preventDefault();
+        axios.get(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/login`)
 
+        .then((res)=>{
+            console.log(res);
+            const user = res.data.find(user =>user.username === username && user.password ===password);
+            if(user){
+                alert("wellcom")
+                // navigate(`/userpage/${user.id}`)
+            }else{
+                alert("invalid")
+            }
+              
+            })
+            
+        }else{
+            alert("plese fill in both username and password")
+        }
     }
+    
   return (
     <div className="flex justify-center items-center p-64 ">
         <div className="card w-96">
             
             <div className="card-body text-center">
                 <h1 className="bg-blue-700 text-white">Login</h1>
-<form onSubmit={inputUserName}>
+<form onSubmit={submitSend}>
 <label className="input input-bordered flex items-center gap-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
