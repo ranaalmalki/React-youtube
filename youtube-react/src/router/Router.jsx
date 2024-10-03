@@ -3,6 +3,7 @@ import App from "../App"
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import UserPage from "../pages/UserPage";
 
 const Router = createBrowserRouter([
 
@@ -27,6 +28,14 @@ element:<Login/>
     
     
     }
+    ,
+{
+    path:"/userpage/:id",
+    element:<UserPage/>
+    
+    
+    }
+
 
 
 ]);
