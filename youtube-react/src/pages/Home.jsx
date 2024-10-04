@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import NavBarHeader from "../components/NavBarHeader";
+import { Link } from "react-router-dom";
 
 function Home() {
     const apikey="AIzaSyDijZ3TU1YQFbHNTd7Asj5s8kGWhvmFjUw"
     const [video,setVideo]=useState([])
     useEffect(()=>{
-        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=${apikey}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=SA&key=${apikey}`)
         .then(res=>{
             console.log(res.data.items);
 
@@ -24,25 +25,40 @@ function Home() {
   return (
     <div>
     <NavBarHeader/>
-    <ul>
+    <div className="flex flex-wrap items-center flex-col p-20 ">
+        <div>
+    <ul className="flex flex-wrap">
     {video.map((e)=>{
         return(
-        <li key={e.id.videoId}>
-            <h2>{e.snippet.title}</h2>
+        <li key={e.id} className="w-64">
             <img
             src={e.snippet.thumbnails.default.url}
-            
+            className="w-48 rounded"
             />
-            <p>{e.snippet.description}</p>
-            <a href={`https://www.youtube.com/watch?v=${e.id.videoId}`} target="_blank" rel="noopener noreferrer">
-            Watch Video
-
-            </a>
-
+                        <h2>{e.snippet.title}</h2>
+                        <Link to={`/watch/${e.id}`}>
+                        watch
+                        </Link>
             </li>
 )
     })}
     </ul>
+    </div>
+    <div className="second-section">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+</svg>
+<h2>Shorts</h2>
+<ul>
+    
+   {video.map((e)=>{
+<li key={e.id.videoId} className="">
+
+</li>
+   })}
+</ul>
+    </div>
+    </div>
     </div>
   )
 }

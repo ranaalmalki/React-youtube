@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import UserPage from "../pages/UserPage";
+import Watch from "../pages/Watch";
 
 const Router = createBrowserRouter([
 
@@ -35,7 +36,13 @@ element:<Login/>
     
     
     }
-
+    ,
+{
+    path:"/watch/:id",
+    element:<Watch/>
+    
+    
+    }
 
 
 ]);
