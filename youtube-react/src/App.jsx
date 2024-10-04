@@ -5,6 +5,7 @@ import './App.css'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import NavBarHeader from './components/NavBarHeader'
+import Home from './pages/Home'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <>
      {/* <Login/> */}
      {/* <SignUp/> */}
-     <NavBarHeader/>
+     {/* <NavBarHeader/> */}
+     <Home/>
     </>
   )
 }
