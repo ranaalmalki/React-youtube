@@ -31,11 +31,11 @@ function NavBarHeader() {
     </button>
   </div>
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl"><img
+    <Link className="btn btn-ghost text-xl" to="/home"><img
     
     src="https://logos-world.net/wp-content/uploads/2020/06/YouTube-Logo.png"
     width={80}
-    /></a>
+    /></Link>
   </div>
   <div className="flex-none gap-8">
   <div className="form-control">
