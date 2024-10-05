@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom"
 
-function NavBarHeader() {
-  return (
+function NavBarHeader(user) {
+    const handleLogout = () => {
+        setUser(null); 
+      };  return (
     <div className=" fixed top-0 flex-no-wrap flex w-full  lg:flex-wrap lg:justify-start lg:sticky">
         
-        {/* NavBarHeader
-        <br/> */}
-{/* <Link to="/home">Home</Link>
-<br/>
-
-<Link to="/Login">Login</Link>
-<br/>
-
-<Link to="/signup">siginup</Link> */}
 
 <div className="navbar bg-base-100">
   <div className="flex-none">
@@ -37,10 +30,12 @@ function NavBarHeader() {
     width={80}
     /></Link>
   </div>
+
   <div className="flex-none gap-8">
   <div className="form-control">
       <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto rounded-badge" />
     </div>
+
     <button className="btn btn-outline rounded-badge ">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="  border border-solid rounded-full border-black" viewBox="0 0 16 16">
   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
@@ -52,22 +47,7 @@ function NavBarHeader() {
 
   </div>
 </div>
-{/* <div className="navbar bg-base-100 justify-center flex  gap-2">
 
-  <button className="btn rounded">
-    
-<Link to="/Login">All</Link>
-    </button>
-    <button className="btn rounded">
-    
-    <Link to="/Login">music</Link>
-        </button>
-        <button className="btn rounded">
-    
-    <Link to="/Login">playlist</Link>
-        </button>
-
-</div> */}
     </div>
   )
 }

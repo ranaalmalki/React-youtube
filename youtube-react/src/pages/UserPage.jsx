@@ -1,11 +1,10 @@
-import { useLocation } from "react-router-dom"
 
 function UserPage() {
-    const location =useLocation()
-    const {username}=location.state || {}
+    // axios.get
   return (
     <div>UserPage
-wellcom {username}
+{username}
+
     </div>
   )
 }

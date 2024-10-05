@@ -6,15 +6,16 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import NavBarHeader from './components/NavBarHeader'
 import Home from './pages/Home'
+import Comment from './pages/Comment'
 
 function App() {
-
   return (
     <>
      {/* <Login/> */}
      {/* <SignUp/> */}
      {/* <NavBarHeader/> */}
-     <Home/>
+     <Home />
+     {/* <Comment/> */}
     </>
   )
 }

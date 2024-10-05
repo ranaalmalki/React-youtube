@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function Home() {
     const apikey="AIzaSyDijZ3TU1YQFbHNTd7Asj5s8kGWhvmFjUw"
     const [video,setVideo]=useState([])
+
     useEffect(()=>{
         axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=SA&key=${apikey}`)
         .then(res=>{

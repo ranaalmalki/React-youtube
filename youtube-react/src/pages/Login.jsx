@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-function Login(userName) {
+function Login(setUse) {
     const [username,setUser]=useState("")
     const [password,setPassword]=useState("")
 const {userId}=useParams()
@@ -33,6 +33,7 @@ const navigate = useNavigate()
             const user = res.data.find(user =>user.username === username && user.password ===password);
             if(user){
                 alert("wellcom")
+                setUse(user)
                 navigate(`/userpage/${user.id}`,{state:{username:user.username}})
             }else{
                 alert("invalid")
