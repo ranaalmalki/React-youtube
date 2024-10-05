@@ -9,7 +9,7 @@ function VideoBehiend() {
     const [video,setVideo]=useState([])
 
     useEffect(()=>{
-        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=SA&key=${apikey}`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=SA&key=${apikey}`)
         .then(res=>{
             console.log(res.data.items);
 

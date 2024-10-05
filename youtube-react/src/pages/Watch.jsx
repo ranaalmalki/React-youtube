@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import VideoBehiend from "./VideoBehiend";
 import Comment from "./Comment";
+import videoLinkein from '../assets/videolinkein.mp4'
 function Watch() {
     const {id} =useParams()
     const apikey="AIzaSyDijZ3TU1YQFbHNTd7Asj5s8kGWhvmFjUw"
@@ -21,8 +22,7 @@ function Watch() {
    const differenceInDays  =Math.floor(differenceInHours/24)
    
    const remainingHours =differenceInHours %24
-   console.log("Published At:", publishedAt);
-   console.log("Current Date:", currentDate);
+
    return {differenceInDays, remainingHours}
   
 
@@ -119,7 +119,7 @@ className="rounded-full h-9"
 <div className="">
 <div className="flex gap-3">
 <h2 className="font-bold ">{e.snippet.topLevelComment.snippet.authorDisplayName}</h2>
-<p>{differenceInDays} days {remainingHours} houres ago</p>
+<p className="text-gray-400">{differenceInDays} days ago {remainingHours} houres ago</p>
 </div>
 <p className="pb-4"> {e.snippet.topLevelComment.snippet.textDisplay}</p>
 <div className="flex gap-4">
@@ -150,6 +150,16 @@ className="rounded-full h-9"
 
 </div>
 <div>
+    <div className="card border border-solid border-white bg-white shadow-md shadow-slate-300">
+        <div className="card-body">
+            <a href="https://sa.linkedin.com/in/rana-almalki-computer-science">
+            <video autoPlay muted loop>
+                <source src={videoLinkein} type="video/mp4"/>
+            </video>
+            </a>
+        </div>
+
+    </div>
 <VideoBehiend/>
 </div>
     </div>
