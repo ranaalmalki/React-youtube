@@ -79,7 +79,7 @@ useEffect(()=>{
         <NavBarHeader/>
         <div className="flex justify-center items-center min-h-screen">
 
-<div className="grid grid-flow-col container ">
+<div className="grid lg:grid-flow-col md:grid-flow-row container ">
 <div className="grid grid-cols-1 ">
 <iframe className="w-full" width="1200" height="640" src={`https://www.youtube.com/embed/${id}`} title="عملنا أحلى حفلة لكشف جنس المولود مع العيلة 🩵🩷" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
