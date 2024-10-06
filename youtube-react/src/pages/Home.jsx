@@ -26,15 +26,17 @@ function Home() {
   return (
     <div>
     <NavBarHeader/>
-    <div className="flex flex-wrap items-center flex-col p-20 ">
-        <div>
-    <ul className="flex flex-wrap">
+
+    <div className="flex flex-wrap items-center flex-col p-20">
+        <div  className="flex justify-center items-center min-h-screen container">
+    
+    <ul className="flex flex-wrap gap-6 justify-center">
     {video.map((e)=>{
         return(
         <li key={e.id} className="w-64">
             <img
-            src={e.snippet.thumbnails.default.url}
-            className="w-48 rounded"
+            src={e.snippet.thumbnails.medium.url}
+            className="w-full rounded"
             />
                         <h2>{e.snippet.title}</h2>
                         <Link to={`/watch/${e.id}`}>

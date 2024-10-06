@@ -98,10 +98,12 @@ useEffect(()=>{
     }}
     )}</div>
 <div>
-    {/* <Comment/> */}
 </div>
 <ul className="">
+
     <h1 className="text-3xl">Comments:</h1>
+    <Comment/>
+
     {comment.map((e)=>{
         
         const {differenceInDays , remainingHours}=calculateTimeDifference(e.snippet.topLevelComment.snippet.publishedAt)
