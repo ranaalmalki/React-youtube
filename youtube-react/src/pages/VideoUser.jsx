@@ -1,9 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import NavBarHeader from "../components/NavBarHeader";
 import { Link } from "react-router-dom";
 
-function Home() {
+function VideoUser() {
     const apikey="AIzaSyDijZ3TU1YQFbHNTd7Asj5s8kGWhvmFjUw"
     const [video,setVideo]=useState([])
 
@@ -25,7 +24,6 @@ function Home() {
 
   return (
     <div>
-    <NavBarHeader/>
 
     <div className="flex flex-wrap items-center flex-col p-20">
         <div  className="flex justify-center items-center min-h-screen container">
@@ -67,4 +65,4 @@ function Home() {
   )
 }
 
-export default Home
+export default VideoUser

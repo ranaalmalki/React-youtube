@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function SignUp() {
 const [username,setUser]=useState("")
@@ -59,11 +60,11 @@ const addUser =(e)=>{
     <div>
 
 <div className="flex justify-center items-center p-64 ">
-        <div className="card w-96">
+        <div className="card w-96 border-8 ">
             
             <div className="card-body text-center">
-                <h1 className="bg-blue-700 text-white">Signup</h1>
-<form onSubmit={addUser}>
+                <h1 className="bg-blue-700 text-white text-2xl">Signup</h1>
+<form onSubmit={addUser} className=" flex flex-col gap-3">
 <label className="input input-bordered flex items-center gap-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +91,8 @@ const addUser =(e)=>{
 </label>
 <button className="btn" type="submit">Sign Up</button>
 </form>
+<Link to="/login">Login if you have account</Link>
+
 </div>
     </div>
     </div>

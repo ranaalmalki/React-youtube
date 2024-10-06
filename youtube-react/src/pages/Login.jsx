@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Login(setUse) {
     const [username,setUser]=useState("")
@@ -32,9 +33,14 @@ const navigate = useNavigate()
             console.log(res);
             const user = res.data.find(user =>user.username === username && user.password ===password);
             if(user){
-                alert("wellcom")
-                setUse(user)
-                navigate(`/userpage/${user.id}`,{state:{username:user.username}})
+                Swal.fire({
+                    title: `Wellcome back ${user.username}!`,
+                    icon: "success"
+                }).then(() => {
+                    setUser(user);
+                    console.log("Navigating to user page with ID:", user.id);
+                    navigate(`/userpage/${user.id}`, { state: { username: user.username } }); // تأكد من أن هذا السطر في داخل then
+                });
             }else{
                 alert("invalid")
             }
@@ -48,11 +54,11 @@ const navigate = useNavigate()
     
   return (
     <div className="flex justify-center items-center p-64 ">
-        <div className="card w-96">
+        <div className="card w-96 border-8 ">
             
             <div className="card-body text-center">
-                <h1 className="bg-blue-700 text-white">Login</h1>
-<form onSubmit={submitSend}>
+                <h1 className="bg-blue-700 text-white text-2xl">Login</h1>
+<form onSubmit={submitSend} className=" flex flex-col gap-3">
 <label className="input input-bordered flex items-center gap-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +85,8 @@ const navigate = useNavigate()
 </label>
 <button className="btn">Login</button>
 </form>
+<Link to="/signup">Signup ?</Link>
+
 </div>
     </div>
     </div>
